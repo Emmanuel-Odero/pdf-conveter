@@ -1,0 +1,24 @@
+{
+  "name": "doc_file_convertor",
+  "version": "1.0.0",
+  "description": "Batch convert writer documents in LibreOffice",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaibhavbhuva/doc_file_convertor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaibhavbhuva/doc_file_convertor/issues"
+  },
+  "homepage": "https://github.com/vaibhavbhuva/doc_file_convertor#readme",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "readdirp": "^3.1.3"
+  }
+}
