@@ -20,7 +20,7 @@ cd doc_file_convertor
 npm install
 ```
 
-##### config variables
+### Configuration
 
 Update config.js with following details
 
