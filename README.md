@@ -31,6 +31,10 @@ const outputDir = ''; // Output directory path
 const outputExt = 'pdf'; // Output extension name
 ```
 
+## Running the script
+
+    $ npm start
+
 ## Dependencies
 
 Package | Version
