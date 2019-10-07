@@ -31,7 +31,7 @@ const outputDir = ''; // Output directory path
 const outputExt = 'pdf'; // Output extension name
 ```
 
-## Running the script
+###  To start the script, run the following
 
     $ npm start
 
