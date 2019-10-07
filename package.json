@@ -4,6 +4,7 @@
   "description": "Batch convert writer documents in LibreOffice",
   "main": "convert.js",
   "scripts": {
+    "start": "node convert.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

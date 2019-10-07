@@ -6,9 +6,9 @@ const exec = util.promisify(require('child_process').exec);
 let failedList = [];
 
 // config variables
-const inputDir = '';
+const inputDir = 'sample/';
 const inputExt = 'doc';
-const outputDir = '';
+const outputDir = 'sample/';
 const outputExt = 'pdf';
 
 const settings = {
@@ -36,7 +36,7 @@ read(inputDir).then(async files => {
   for (let index = 0; index < files.length; index++) {
     const file = files[index];
     try {
-      console.log(`${index} / ${files.length} process started`);
+      console.log(`${index + 1} / ${files.length} process started`);
       var r = /[^\/]*$/;
       let outputPath = file.path.replace(r, '');
       outputPath = path.join(outputDir, outputPath);
@@ -46,7 +46,7 @@ read(inputDir).then(async files => {
       );
       if (!isFileExist) {
         await fs.ensureDir(outputPath);
-        var command = `soffice --headless --convert-to ${outputExt} --outdir ${outputPath} ${file.fullPath}`;
+        var command = `soffice --headless --convert-to ${outputExt} --outdir "${outputPath}" "${file.fullPath}"`;
         const { stdout, stderr } = await exec(command);
         if (stderr) {
           console.error(`ERROR: ${stderr}`);
@@ -57,7 +57,7 @@ read(inputDir).then(async files => {
           `${index} :: File already converted ${filename}${outputExt}`
         );
       }
-      console.log(`${index} / ${files.length} process completed`);
+      console.log(`${index + 1} / ${files.length} process completed`);
     } catch (error) {
       failedList.push(file.path);
     }
@@ -65,5 +65,6 @@ read(inputDir).then(async files => {
   console.log(
     "All files have been converted. Please check 'failedList.txt' file for failed list"
   );
-  fs.writeFileSync('failedList.txt', _.uniq(failedList).toString());
+  if (failedList.length != 0)
+    fs.writeFileSync('failedList.txt', failedList.toString());
 });
