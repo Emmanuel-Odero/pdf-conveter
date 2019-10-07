@@ -3,29 +3,32 @@ const fs = require('fs-extra');
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+let failedList = [];
 
+// config variables
 const inputDir = '';
 const inputExt = 'doc';
 const outputDir = '';
 const outputExt = 'pdf';
-let failedList = [];
+
+const settings = {
+  // 'files' (default), 'directories', 'files_directories', or 'all'
+  type: 'files',
+  // Work with files up to 1 subdirectory deep
+  depth: 5,
+  // By always return stats property for every file.
+  alwaysStat: false,
+  // filter to include or exclude files
+  fileFilter: `*.${inputExt}`,
+  // Filter by directory
+  directoryFilter: ['!.git', '!*modules']
+};
 
 const read = async directory => {
-  let files = await readdirp.promise(directory, {
-    alwaysStat: false,
-    fileFilter: `*.${inputExt}`
-  });
-
+  let files = await readdirp.promise(directory, settings);
   if (files && files.length == 0)
     throw new Error('Given input directory is empty');
 
-  files = files.map(file => {
-    return {
-      fullPath: file.fullPath,
-      path: file.path,
-      filename: file.basename
-    };
-  });
   return files;
 };
 
@@ -37,7 +40,7 @@ read(inputDir).then(async files => {
       var r = /[^\/]*$/;
       let outputPath = file.path.replace(r, '');
       outputPath = path.join(outputDir, outputPath);
-      let filename = path.basename(file.filename, inputExt);
+      let filename = path.basename(file.basename, inputExt);
       let isFileExist = await fs.pathExists(
         path.join(outputPath, filename, outputExt)
       );
@@ -59,5 +62,8 @@ read(inputDir).then(async files => {
       failedList.push(file.path);
     }
   }
+  console.log(
+    "All files have been converted. Please check 'failedList.txt' file for failed list"
+  );
   fs.writeFileSync('failedList.txt', _.uniq(failedList).toString());
 });
