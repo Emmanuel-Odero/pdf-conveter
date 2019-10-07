@@ -22,7 +22,7 @@ npm install
 
 ### Configuration
 
-Update config.js with following details
+Update convert.js with following details
 
 ``` 
 const inputDir = ''; // Input directory path 
