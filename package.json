@@ -11,8 +11,19 @@
     "type": "git",
     "url": "git+https://github.com/vaibhavbhuva/doc_file_convertor.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Libreoffice",
+    "convert",
+    "word",
+    "excel",
+    "image",
+    "pdf",
+    "xlsx",
+    "html",
+    "soffice",
+    "file-convertor"
+  ],
+  "author": "Vaibhav Bhuva",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vaibhavbhuva/doc_file_convertor/issues"
