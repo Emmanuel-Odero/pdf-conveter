@@ -1,0 +1,260 @@
+.toolbar {
+    border: 1px solid #d0d0d0;
+    z-index: 100;
+    width: 100%;
+    background-color: #eaebec;
+    border-radius: 10px;
+    border: 4px solid #dddddd;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Open Sans';
+}
+
+.toolbar select {
+    font-size: 20px;
+    font-weight: 300;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    border: 0;
+    padding: 8px 40px 8px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-image: url(../images/dropdown.png);
+    background-position: right 15px center;
+    transition: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    -webkit-appearance: none;   
+    -webkit-transition: all;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease;
+    -moz-appearance: none;
+   
+}
+
+.toolbar input[type=text]:focus, .toolbar input[type=password]:focus, .toolbar select:focus {
+    outline: 0;
+    box-shadow: 0 0 0px 1px #87d534;
+    background-color: #f5ffeb;
+}
+
+.toolbar select.text-size,.toolbar select.pen-size {
+  margin-left: 5px;
+  margin-right: 5px;
+  z-index: 100000;
+  vertical-align: middle;
+  display: inline-block;  
+}
+.toolbar .spacer {
+  /*display: none;*/
+  display: inline-block;
+  border-left: 1px solid #c1c1c1;
+  height: 35px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.toolbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toolbar button {  
+  background-color: #eaeaea;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 3px;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  min-width: 27px;
+  min-height: 27px;
+  font-family: 'Open Sans';
+  outline:none;
+  vertical-align: middle;
+  display: inline-block;
+}
+.toolbar button.active {
+    border-color: transparent;
+    background-color: #dedede;
+    border-radius: 10px;
+}
+
+.toolbar button:hover,
+.toolbar button:focus {
+  border-color: #dedede;
+  border-radius: 10px;  
+}
+
+.toolbar button.pen {
+  font-size: 16px;
+}
+
+.toolbar button.comment {
+  font-size: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 0 #000000;
+}
+
+.toolbar button.rectangle,
+.toolbar button.highlight
+{
+  margin-right: 5px;
+}
+
+.toolbar button.Download {
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 10px;
+  min-width: 150px;
+  background-color: #87d534;
+  transition: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  -webkit-transition: all;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease;
+}  
+
+.color {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  vertical-align: middle;
+}
+.color-selected {
+  border: 3px solid #666;
+  width: 30px;
+  height: 30px;
+  margin-top: -1px;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+.text-color, .pen-color, .rectangle-color {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.text-input-custom {
+  border: 2px solid #87d534;
+  border-radius: 3px;
+  font-size: 14px;
+  box-shadow: 0px 4px 6px 0 #00000035;
+  position: absolute;
+}
+
+.text-input-custom textarea {
+font-size: 14px;
+border:1px solid #ccc!important;
+}
+
+.pagenumerator {
+  padding: 10px;
+  font-weight: bold;
+  opacity: 0.3;
+  font-size: 16px;
+  color: black;
+  background: #ccc;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  border-radius:5px;
+  min-width: 25px;
+  height: 25px;
+  line-height: 25px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.toolbar button.cursor,
+.toolbar button.rectangle,
+.toolbar button.highlight,
+.toolbar button.strikeout,
+.toolbar button.text,
+.toolbar button.pen,
+.toolbar a.clear,
+.toolbar #start-processing {
+padding:10px;
+}
+
+.toolbar button img {
+width:28px;
+height:28px;
+object-fit: scale-down;
+display: block;
+}  
+
+.toolbar button span, .toolbar a.clear span {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 300;
+    padding: 10px 0;
+    display: inline-block;
+    text-shadow: none;
+}
+
+.toolbar a.clear span {
+
+
+}
+.toolbar button.undo.disabled, .toolbar button.redo.disabled {
+    cursor:default;
+}
+.toolbar button.undo.disabled img, .toolbar button.redo.disabled img {
+    filter: grayscale(100%);
+    opacity: 0.3;
+}
+
+.toolbar button.undo, .toolbar button.redo {
+padding:10px;
+}
+
+.toolbar .navigate {
+padding:10px;
+}
+
+.img-add-delete {
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.img-add-delete .img-add {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+}
+
+.img-add-delete .img-delete {
+    margin-left: 2px;
+    cursor: pointer;
+    margin-right: 2px;
+    width: 32px;
+    height: 32px;
+}
+
+.img-add-delete .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#pdf-annotate-text-input textarea {
+    resize: none;
+}
